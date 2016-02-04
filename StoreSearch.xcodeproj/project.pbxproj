@@ -12,6 +12,7 @@
 		F29F75E61C61459600A6F6DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29F75E41C61459600A6F6DA /* Main.storyboard */; };
 		F29F75E81C61459600A6F6DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F29F75E71C61459600A6F6DA /* Assets.xcassets */; };
 		F29F75EB1C61459600A6F6DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29F75E91C61459600A6F6DA /* LaunchScreen.storyboard */; };
+		F29F75F31C63EFAF00A6F6DA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F29F75E71C61459600A6F6DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29F75EA1C61459600A6F6DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F29F75EC1C61459600A6F6DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			children = (
 				F29F75DF1C61459600A6F6DA /* StoreSearch */,
 				F29F75DE1C61459600A6F6DA /* Products */,
+				F29F75E91C61459600A6F6DA /* LaunchScreen.storyboard */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +61,8 @@
 				F29F75E21C61459600A6F6DA /* SearchViewController.swift */,
 				F29F75E41C61459600A6F6DA /* Main.storyboard */,
 				F29F75E71C61459600A6F6DA /* Assets.xcassets */,
-				F29F75E91C61459600A6F6DA /* LaunchScreen.storyboard */,
 				F29F75EC1C61459600A6F6DA /* Info.plist */,
+				F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29F75E31C61459600A6F6DA /* SearchViewController.swift in Sources */,
+				F29F75F31C63EFAF00A6F6DA /* SearchResult.swift in Sources */,
 				F29F75E11C61459600A6F6DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +160,7 @@
 				F29F75EA1C61459600A6F6DA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = StoreSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -283,6 +288,7 @@
 				F29F75F11C61459600A6F6DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
