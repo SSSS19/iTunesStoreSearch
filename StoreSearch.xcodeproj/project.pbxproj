@@ -16,6 +16,7 @@
 		F29F75F71C652CAF00A6F6DA /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */; settings = {ASSET_TAGS = (); }; };
 		F29F75F91C6530F600A6F6DA /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F75F81C6530F600A6F6DA /* NothingFoundCell.xib */; settings = {ASSET_TAGS = (); }; };
 		F29F75FB1C70098000A6F6DA /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F75FA1C70098000A6F6DA /* LoadingCell.xib */; settings = {ASSET_TAGS = (); }; };
+		F29F75FD1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		F29F75F81C6530F600A6F6DA /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		F29F75FA1C70098000A6F6DA /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */,
 				F29F75F81C6530F600A6F6DA /* NothingFoundCell.xib */,
 				F29F75FA1C70098000A6F6DA /* LoadingCell.xib */,
+				F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				F29F75F31C63EFAF00A6F6DA /* SearchResult.swift in Sources */,
 				F29F75F71C652CAF00A6F6DA /* SearchResultCell.swift in Sources */,
 				F29F75E11C61459600A6F6DA /* AppDelegate.swift in Sources */,
+				F29F75FD1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

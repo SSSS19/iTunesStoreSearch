@@ -27,3 +27,4 @@ func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
 func > (lhs: SearchResult, rhs: SearchResult) -> Bool {
     return rhs.name.localizedStandardCompare(lhs.name) == .OrderedAscending
 }
+
