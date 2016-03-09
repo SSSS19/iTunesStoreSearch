@@ -225,6 +225,38 @@
             </objects>
             <point key="canvasLocation" x="890" y="307"/>
         </scene>
+        <!--Landscape View Controller-->
+        <scene sceneID="nnN-yf-D2K">
+            <objects>
+                <viewController storyboardIdentifier="LandscapeViewController" id="cgw-VS-OkZ" customClass="LandscapeViewController" customModule="StoreSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N8g-If-r8Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="IP6-SH-TJL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uv5-8p-Ps7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ku-cH-Myd">
+                                <rect key="frame" x="280.5" y="290" width="39" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5ku-cH-Myd" firstAttribute="centerY" secondItem="uv5-8p-Ps7" secondAttribute="centerY" id="DSw-cT-LNa"/>
+                            <constraint firstItem="5ku-cH-Myd" firstAttribute="centerX" secondItem="uv5-8p-Ps7" secondAttribute="centerX" id="oI0-oE-SVi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6eO-GN-aM9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="895"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CloseButton" width="15" height="15"/>
