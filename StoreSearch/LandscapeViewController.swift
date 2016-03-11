@@ -10,8 +10,9 @@ import UIKit
 
 class LandscapeViewController: UIViewController {
     
-    var searchResults = [SearchResult]()
+    var search: Search!
     private var firstTime = true
+    private var downloadTasks = [NSURLSessionDownloadTask]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -57,7 +58,7 @@ class LandscapeViewController: UIViewController {
         
         if firstTime {
             firstTime = false
-            tileButtons(searchResults)
+            tileButtons(search.searchResults)
         }
     }
     
@@ -103,9 +104,10 @@ class LandscapeViewController: UIViewController {
         
         for searchResult in searchResults {
             
-            let button = UIButton(type: .System)
-            button.backgroundColor = UIColor.whiteColor()
-            button.setTitle("\(index)", forState: .Normal)
+            let button = UIButton(type: .Custom)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton"), forState: .Normal)
+            downloadImageForSearchResult(searchResult, andPlaceOnButton: button)
+            
             
             button.frame = CGRect(
                 x: x + paddingHorz,
@@ -144,7 +146,36 @@ class LandscapeViewController: UIViewController {
     
     deinit {
         print("deinit \(self)")
+        
+        for task in downloadTasks {
+            task.cancel()
+        }
     }
+    
+    private func downloadImageForSearchResult(searchResult: SearchResult, andPlaceOnButton button: UIButton)
+    {
+    
+        if let url = NSURL(string: searchResult.artworkURL60) {
+            let session = NSURLSession.sharedSession()
+            let downloadTask = session.downloadTaskWithURL(url) {
+                [weak button] url, response, error in
+                
+                if error == nil, let url = url, data = NSData(contentsOfURL: url), image = UIImage(data: data) {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if let button = button {
+                            button.setImage(image, forState: .Normal)
+                        }
+                    }
+                }
+                
+            }
+            downloadTask.resume()
+            downloadTasks.append(downloadTask)
+        }
+        
+        
+    }
+    
     
 
     /*
