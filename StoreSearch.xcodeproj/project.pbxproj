@@ -12,10 +12,7 @@
 		F29F75E61C61459600A6F6DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29F75E41C61459600A6F6DA /* Main.storyboard */; };
 		F29F75E81C61459600A6F6DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F29F75E71C61459600A6F6DA /* Assets.xcassets */; };
 		F29F75F31C63EFAF00A6F6DA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F75F51C6501F900A6F6DA /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F75F41C6501F900A6F6DA /* SearchResultCell.xib */; settings = {ASSET_TAGS = (); }; };
 		F29F75F71C652CAF00A6F6DA /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F75F91C6530F600A6F6DA /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F75F81C6530F600A6F6DA /* NothingFoundCell.xib */; settings = {ASSET_TAGS = (); }; };
-		F29F75FB1C70098000A6F6DA /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F75FA1C70098000A6F6DA /* LoadingCell.xib */; settings = {ASSET_TAGS = (); }; };
 		F29F75FD1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */; settings = {ASSET_TAGS = (); }; };
 		F29F75FF1C82448E00A6F6DA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75FE1C82448E00A6F6DA /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F29F76011C8A05E900A6F6DA /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76001C8A05E900A6F6DA /* DimmingPresentationController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -25,6 +22,9 @@
 		F29F76091C8F1B2800A6F6DA /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76081C8F1B2800A6F6DA /* LandscapeViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F29F760B1C909E7A00A6F6DA /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F760A1C909E7A00A6F6DA /* FadeOutAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
 		F29F760D1C93249300A6F6DA /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F760C1C93249300A6F6DA /* Search.swift */; settings = {ASSET_TAGS = (); }; };
+		F2E824BA1C9474D800CA18A4 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824BC1C9474D800CA18A4 /* NothingFoundCell.xib */; };
+		F2E824BE1C94789700CA18A4 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C01C94789700CA18A4 /* LoadingCell.xib */; };
+		F2E824C51C947AD000CA18A4 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C71C947AD000CA18A4 /* SearchResultCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,10 +35,7 @@
 		F29F75E71C61459600A6F6DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F29F75EC1C61459600A6F6DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		F29F75F41C6501F900A6F6DA /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
-		F29F75F81C6530F600A6F6DA /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
-		F29F75FA1C70098000A6F6DA /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		F29F75FE1C82448E00A6F6DA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F29F76001C8A05E900A6F6DA /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
@@ -48,6 +45,12 @@
 		F29F76081C8F1B2800A6F6DA /* LandscapeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandscapeViewController.swift; sourceTree = "<group>"; };
 		F29F760A1C909E7A00A6F6DA /* FadeOutAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FadeOutAnimationController.swift; sourceTree = "<group>"; };
 		F29F760C1C93249300A6F6DA /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		F2E824BB1C9474D800CA18A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		F2E824BD1C94758300CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = nl; path = nl.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		F2E824BF1C94789700CA18A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
+		F2E824C21C9478CA00CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
+		F2E824C41C9479D300CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
+		F2E824C61C947AD000CA18A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +89,10 @@
 				F29F75E71C61459600A6F6DA /* Assets.xcassets */,
 				F29F75EC1C61459600A6F6DA /* Info.plist */,
 				F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */,
-				F29F75F41C6501F900A6F6DA /* SearchResultCell.xib */,
+				F2E824C71C947AD000CA18A4 /* SearchResultCell.xib */,
 				F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */,
-				F29F75F81C6530F600A6F6DA /* NothingFoundCell.xib */,
-				F29F75FA1C70098000A6F6DA /* LoadingCell.xib */,
+				F2E824BC1C9474D800CA18A4 /* NothingFoundCell.xib */,
+				F2E824C01C94789700CA18A4 /* LoadingCell.xib */,
 				F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */,
 				F29F75FE1C82448E00A6F6DA /* DetailViewController.swift */,
 				F29F76001C8A05E900A6F6DA /* DimmingPresentationController.swift */,
@@ -144,6 +147,7 @@
 			knownRegions = (
 				en,
 				Base,
+				nl,
 			);
 			mainGroup = F29F75D41C61459600A6F6DA;
 			productRefGroup = F29F75DE1C61459600A6F6DA /* Products */;
@@ -161,9 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29F75E81C61459600A6F6DA /* Assets.xcassets in Resources */,
-				F29F75FB1C70098000A6F6DA /* LoadingCell.xib in Resources */,
-				F29F75F51C6501F900A6F6DA /* SearchResultCell.xib in Resources */,
-				F29F75F91C6530F600A6F6DA /* NothingFoundCell.xib in Resources */,
+				F2E824BE1C94789700CA18A4 /* LoadingCell.xib in Resources */,
+				F2E824C51C947AD000CA18A4 /* SearchResultCell.xib in Resources */,
+				F2E824BA1C9474D800CA18A4 /* NothingFoundCell.xib in Resources */,
 				F29F75E61C61459600A6F6DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,8 +202,35 @@
 			isa = PBXVariantGroup;
 			children = (
 				F29F75E51C61459600A6F6DA /* Base */,
+				F2E824C41C9479D300CA18A4 /* nl */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F2E824BC1C9474D800CA18A4 /* NothingFoundCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2E824BB1C9474D800CA18A4 /* en */,
+				F2E824BD1C94758300CA18A4 /* nl */,
+			);
+			name = NothingFoundCell.xib;
+			sourceTree = "<group>";
+		};
+		F2E824C01C94789700CA18A4 /* LoadingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2E824BF1C94789700CA18A4 /* Base */,
+				F2E824C21C9478CA00CA18A4 /* nl */,
+			);
+			name = LoadingCell.xib;
+			sourceTree = "<group>";
+		};
+		F2E824C71C947AD000CA18A4 /* SearchResultCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2E824C61C947AD000CA18A4 /* Base */,
+			);
+			name = SearchResultCell.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
