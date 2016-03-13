@@ -25,6 +25,8 @@
 		F2E824BA1C9474D800CA18A4 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824BC1C9474D800CA18A4 /* NothingFoundCell.xib */; };
 		F2E824BE1C94789700CA18A4 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C01C94789700CA18A4 /* LoadingCell.xib */; };
 		F2E824C51C947AD000CA18A4 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C71C947AD000CA18A4 /* SearchResultCell.xib */; };
+		F2E824CA1C94A71D00CA18A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C81C94A71D00CA18A4 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
+		F2E824CF1C95C8B000CA18A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2E824D11C95C8B000CA18A4 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,10 @@
 		F2E824C21C9478CA00CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LoadingCell.strings; sourceTree = "<group>"; };
 		F2E824C41C9479D300CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
 		F2E824C61C947AD000CA18A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
+		F2E824C91C94A71D00CA18A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2E824CC1C94CC2300CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2E824D01C95C8B000CA18A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F2E824D21C95C8B300CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 		F29F75DF1C61459600A6F6DA /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				F2E824C81C94A71D00CA18A4 /* Localizable.strings */,
 				F29F75E01C61459600A6F6DA /* AppDelegate.swift */,
 				F29F75E21C61459600A6F6DA /* SearchViewController.swift */,
 				F29F75E41C61459600A6F6DA /* Main.storyboard */,
@@ -102,6 +109,7 @@
 				F29F76081C8F1B2800A6F6DA /* LandscapeViewController.swift */,
 				F29F760A1C909E7A00A6F6DA /* FadeOutAnimationController.swift */,
 				F29F760C1C93249300A6F6DA /* Search.swift */,
+				F2E824D11C95C8B000CA18A4 /* InfoPlist.strings */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
@@ -165,6 +173,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F29F75E81C61459600A6F6DA /* Assets.xcassets in Resources */,
+				F2E824CF1C95C8B000CA18A4 /* InfoPlist.strings in Resources */,
+				F2E824CA1C94A71D00CA18A4 /* Localizable.strings in Resources */,
 				F2E824BE1C94789700CA18A4 /* LoadingCell.xib in Resources */,
 				F2E824C51C947AD000CA18A4 /* SearchResultCell.xib in Resources */,
 				F2E824BA1C9474D800CA18A4 /* NothingFoundCell.xib in Resources */,
@@ -231,6 +241,24 @@
 				F2E824C61C947AD000CA18A4 /* Base */,
 			);
 			name = SearchResultCell.xib;
+			sourceTree = "<group>";
+		};
+		F2E824C81C94A71D00CA18A4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2E824C91C94A71D00CA18A4 /* en */,
+				F2E824CC1C94CC2300CA18A4 /* nl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F2E824D11C95C8B000CA18A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2E824D01C95C8B000CA18A4 /* Base */,
+				F2E824D21C95C8B300CA18A4 /* nl */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
