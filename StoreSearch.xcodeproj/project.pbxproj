@@ -27,6 +27,7 @@
 		F2E824C51C947AD000CA18A4 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C71C947AD000CA18A4 /* SearchResultCell.xib */; };
 		F2E824CA1C94A71D00CA18A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C81C94A71D00CA18A4 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
 		F2E824CF1C95C8B000CA18A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2E824D11C95C8B000CA18A4 /* InfoPlist.strings */; };
+		F2E824D41CA72D7F00CA18A4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E824D31CA72D7F00CA18A4 /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		F2E824CC1C94CC2300CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F2E824D01C95C8B000CA18A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F2E824D21C95C8B300CA18A4 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F2E824D31CA72D7F00CA18A4 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				F29F76081C8F1B2800A6F6DA /* LandscapeViewController.swift */,
 				F29F760A1C909E7A00A6F6DA /* FadeOutAnimationController.swift */,
 				F29F760C1C93249300A6F6DA /* Search.swift */,
+				F2E824D31CA72D7F00CA18A4 /* MenuViewController.swift */,
 				F2E824D11C95C8B000CA18A4 /* InfoPlist.strings */,
 			);
 			path = StoreSearch;
@@ -192,6 +195,7 @@
 				F29F760D1C93249300A6F6DA /* Search.swift in Sources */,
 				F29F75E31C61459600A6F6DA /* SearchViewController.swift in Sources */,
 				F29F76011C8A05E900A6F6DA /* DimmingPresentationController.swift in Sources */,
+				F2E824D41CA72D7F00CA18A4 /* MenuViewController.swift in Sources */,
 				F29F760B1C909E7A00A6F6DA /* FadeOutAnimationController.swift in Sources */,
 				F29F75F31C63EFAF00A6F6DA /* SearchResult.swift in Sources */,
 				F29F75F71C652CAF00A6F6DA /* SearchResultCell.swift in Sources */,
@@ -353,6 +357,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.PiVI.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -364,6 +369,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.PiVI.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
