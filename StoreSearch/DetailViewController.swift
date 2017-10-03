@@ -13,13 +13,13 @@ class DetailViewController: UIViewController {
     
     var searchResult: SearchResult! {
         didSet {
-            if isViewLoaded() {
+            if isViewLoaded {
                 updateUI()
             }
         }
     }
-    var downloadTask: NSURLSessionDownloadTask?
-    var dismissAnimationStyle = AnimationStyle.Fade
+    var downloadTask: URLSessionDownloadTask?
+    var dismissAnimationStyle = AnimationStyle.fade
     var isPopUp = false
     
     @IBOutlet weak var popupView: UIView!
@@ -31,18 +31,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priceButton: UIButton!
     
     enum AnimationStyle {
-        case Slide
-        case Fade
+        case slide
+        case fade
     }
 
     @IBAction func close() {
-        dismissAnimationStyle = .Slide
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissAnimationStyle = .slide
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func openInStore() {
-        if let url = NSURL(string: searchResult.storeURL) {
-            UIApplication.sharedApplication().openURL(url)
+        if let url = URL(string: searchResult.storeURL) {
+            UIApplication.shared.openURL(url)
         }
     }
     
@@ -52,15 +52,15 @@ class DetailViewController: UIViewController {
         popupView.layer.cornerRadius = 10
 
         if isPopUp {
-            let gestureRecognizer = UITapGestureRecognizer(target: self, action: ("close"))
+            let gestureRecognizer = UITapGestureRecognizer(target: self, action: (#selector(DetailViewController.close)))
             gestureRecognizer.cancelsTouchesInView = false
             gestureRecognizer.delegate = self
             view.addGestureRecognizer(gestureRecognizer)
-            view.backgroundColor = UIColor.clearColor()
+            view.backgroundColor = UIColor.clear
         } else {
             view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
-            popupView.hidden = true
-            if let displayName = NSBundle.mainBundle().localizedInfoDictionary?["CFBundleDisplayName"] as? String {
+            popupView.isHidden = true
+            if let displayName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String {
                 title = displayName
             }
         }
@@ -78,7 +78,7 @@ class DetailViewController: UIViewController {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        modalPresentationStyle = .Custom
+        modalPresentationStyle = .custom
         transitioningDelegate = self
     }
     
@@ -99,32 +99,32 @@ class DetailViewController: UIViewController {
         kindLabel.text = searchResult.kindForDisplay()
         genreLabel.text = searchResult.genre
         
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
         formatter.currencyCode = searchResult.currency
         
         let priceText: String
         if searchResult.price == 0 {
             priceText = NSLocalizedString("Free", comment: "No cost for the item")
-        } else if let text = formatter.stringFromNumber(searchResult.price) {
+        } else if let text = formatter.string(from: NSNumber(searchResult.price)) {
             priceText = text
         } else {
             priceText = ""
         }
         
-        priceButton.setTitle(priceText, forState: .Normal)
+        priceButton.setTitle(priceText, for: UIControlState())
         
-        if let url = NSURL(string: searchResult.artworkURL100) {
+        if let url = URL(string: searchResult.artworkURL100) {
             downloadTask = artworkImageView.loadImageWithURL(url)
         }
         
-        popupView.hidden = false
+        popupView.isHidden = false
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ShowMenu" {
-            let controller = segue.destinationViewController as! MenuViewController
+            let controller = segue.destination as! MenuViewController
             controller.delegate = self
         }
     }
@@ -145,49 +145,49 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UIViewControllerTransitioningDelegate {
     
-    func presentationControllerForPresentedViewController(presented: UIViewController, presentingViewController presenting: UIViewController, sourceViewController source: UIViewController) -> UIPresentationController? {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         
-        return DimmingPresentationController(presentedViewController: presented, presentingViewController: presenting)
+        return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
     }
     
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         return BounceAnimationController()
     }
     
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         switch dismissAnimationStyle {
-        case .Slide:
+        case .slide:
             return SlideOutAnimationController()
-        case .Fade:
+        case .fade:
             return FadeOutAnimationController()
         }
     }
 }
 
 extension DetailViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return (touch.view === self.view)
     }
 }
 extension DetailViewController: MenuViewControllerDelegate {
     func menuViewControllerSendSupportEmail(_: MenuViewController){
-        dismissViewControllerAnimated(true) {
+        dismiss(animated: true) {
             if MFMailComposeViewController.canSendMail() {
                 let controller = MFMailComposeViewController()
                 controller.setSubject(NSLocalizedString("Support Request", comment: "Email subjecy"))
                 controller.setToRecipients(["your@email-address-here.com"])
                 controller.mailComposeDelegate = self
-                controller.modalPresentationStyle = .FormSheet
-                self.presentViewController(controller, animated: true, completion: nil)
+                controller.modalPresentationStyle = .formSheet
+                self.present(controller, animated: true, completion: nil)
             }
         }
     }
 }
 extension DetailViewController: MFMailComposeViewControllerDelegate {
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
 }
 

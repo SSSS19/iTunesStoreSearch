@@ -11,14 +11,14 @@ import UIKit
 class LandscapeViewController: UIViewController {
     
     var search: Search!
-    private var firstTime = true
-    private var downloadTasks = [NSURLSessionDownloadTask]()
+    fileprivate var firstTime = true
+    fileprivate var downloadTasks = [URLSessionDownloadTask]()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    @IBAction func pageChanged(sender: UIPageControl) {
-        UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut,
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions(),
             animations: {
                 self.scrollView.contentOffset = CGPoint(
                     x: self.scrollView.bounds.size.width * CGFloat(sender.currentPage),
@@ -27,8 +27,8 @@ class LandscapeViewController: UIViewController {
         
     }
     
-    func buttonPressed(sender: UIButton) {
-        performSegueWithIdentifier("ShowDetail", sender: sender)
+    func buttonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "ShowDetail", sender: sender)
     }
 
     override func viewDidLoad() {
@@ -64,19 +64,19 @@ class LandscapeViewController: UIViewController {
             firstTime = false
             
             switch search.state {
-            case .NotSearchedYet:
+            case .notSearchedYet:
                 break
-            case .Loading:
+            case .loading:
                 showSpinner()
-            case .NoResults:
+            case .noResults:
                 showNothingFoundLabel()
-            case .Results(let list):
+            case .results(let list):
                 tileButtons(list)
             }
         }
     }
     
-    private func tileButtons(searchResults: [SearchResult]) {
+    fileprivate func tileButtons(_ searchResults: [SearchResult]) {
         var columnsPerPage = 5
         var rowsPerPage = 3
         var itemWidth: CGFloat = 96
@@ -116,13 +116,13 @@ class LandscapeViewController: UIViewController {
         var column = 0
         var x = marginX
         
-        for (index, searchResult) in searchResults.enumerate() {
+        for (index, searchResult) in searchResults.enumerated() {
             
-            let button = UIButton(type: .Custom)
-            button.setBackgroundImage(UIImage(named: "LandscapeButton"), forState: .Normal)
+            let button = UIButton(type: .custom)
+            button.setBackgroundImage(UIImage(named: "LandscapeButton"), for: UIControlState())
             downloadImageForSearchResult(searchResult, andPlaceOnButton: button)
             button.tag = 2000 + index
-            button.addTarget(self, action: Selector("buttonPressed:"), forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(LandscapeViewController.buttonPressed(_:)), for: .touchUpInside)
             
             
             button.frame = CGRect(
@@ -132,9 +132,9 @@ class LandscapeViewController: UIViewController {
             
             scrollView.addSubview(button)
             
-            ++row
+            row += 1
             if row == rowsPerPage {
-                row = 0; x += itemWidth; ++column
+                row = 0; x += itemWidth; column += 1
                 
                 if column == columnsPerPage {
                     column = 0; x += marginX * 2
@@ -168,23 +168,23 @@ class LandscapeViewController: UIViewController {
         }
     }
     
-    private func downloadImageForSearchResult(searchResult: SearchResult, andPlaceOnButton button: UIButton)
+    fileprivate func downloadImageForSearchResult(_ searchResult: SearchResult, andPlaceOnButton button: UIButton)
     {
     
-        if let url = NSURL(string: searchResult.artworkURL60) {
-            let session = NSURLSession.sharedSession()
-            let downloadTask = session.downloadTaskWithURL(url) {
+        if let url = URL(string: searchResult.artworkURL60) {
+            let session = URLSession.shared
+            let downloadTask = session.downloadTask(with: url, completionHandler: {
                 [weak button] url, response, error in
                 
-                if error == nil, let url = url, data = NSData(contentsOfURL: url), image = UIImage(data: data) {
-                    dispatch_async(dispatch_get_main_queue()) {
+                if error == nil, let url = url, let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
                         if let button = button {
-                            button.setImage(image, forState: .Normal)
+                            button.setImage(image, for: UIControlState())
                         }
                     }
                 }
                 
-            }
+            }) 
             downloadTask.resume()
             downloadTasks.append(downloadTask)
         }
@@ -192,12 +192,12 @@ class LandscapeViewController: UIViewController {
         
     }
     
-    private func showSpinner() {
-        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+    fileprivate func showSpinner() {
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
         
         spinner.center = CGPoint(
-            x: CGRectGetMidX(scrollView.bounds) + 0.5,
-            y: CGRectGetMidY(scrollView.bounds) + 0.5)
+            x: scrollView.bounds.midX + 0.5,
+            y: scrollView.bounds.midY + 0.5)
         
         spinner.tag = 1000
         view.addSubview(spinner)
@@ -208,24 +208,24 @@ class LandscapeViewController: UIViewController {
         hideSpinner()
         
         switch search.state {
-        case .NotSearchedYet, .Loading:
+        case .notSearchedYet, .loading:
             break
-        case .NoResults:
+        case .noResults:
             showNothingFoundLabel()
-        case .Results(let list):
+        case .results(let list):
             tileButtons(list)
         }
     }
     
-    private func hideSpinner() {
+    fileprivate func hideSpinner() {
         view.viewWithTag(1000)?.removeFromSuperview()
     }
     
-    private func showNothingFoundLabel() {
+    fileprivate func showNothingFoundLabel() {
         let label = UILabel(frame: CGRect.zero)
         label.text = NSLocalizedString("Nothing Found", comment: "No items could be found from the request")
-        label.textColor = UIColor.whiteColor()
-        label.backgroundColor = UIColor.clearColor()
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.clear
         
         label.sizeToFit()
         
@@ -234,16 +234,16 @@ class LandscapeViewController: UIViewController {
         rect.size.height = ceil(rect.size.height/2) * 2
         label.frame = rect
         label.center = CGPoint(
-            x: CGRectGetMidX(scrollView.bounds),
-            y: CGRectGetMidY(scrollView.bounds))
+            x: scrollView.bounds.midX,
+            y: scrollView.bounds.midY)
         view.addSubview(label)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "ShowDetail" {
-            if case .Results(let list) = search.state {
-                let detailViewController = segue.destinationViewController as! DetailViewController
+            if case .results(let list) = search.state {
+                let detailViewController = segue.destination as! DetailViewController
                 let searchResult = list[sender!.tag - 2000]
                 detailViewController.searchResult = searchResult
                 detailViewController.isPopUp = true
@@ -265,7 +265,7 @@ class LandscapeViewController: UIViewController {
 }
 
 extension LandscapeViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let width = scrollView.bounds.size.width
         let currentPage = Int((scrollView.contentOffset.x + (width / 2)) / width)
         pageControl.currentPage = currentPage

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MenuViewControllerDelegate: class {
-    func menuViewControllerSendSupportEmail(controller: MenuViewController)
+    func menuViewControllerSendSupportEmail(_ controller: MenuViewController)
 }
 
 class MenuViewController: UITableViewController {
@@ -31,7 +31,7 @@ class MenuViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 0 {
             delegate?.menuViewControllerSendSupportEmail(self)

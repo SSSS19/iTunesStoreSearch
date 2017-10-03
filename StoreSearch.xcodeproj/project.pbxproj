@@ -11,23 +11,23 @@
 		F29F75E31C61459600A6F6DA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75E21C61459600A6F6DA /* SearchViewController.swift */; };
 		F29F75E61C61459600A6F6DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F29F75E41C61459600A6F6DA /* Main.storyboard */; };
 		F29F75E81C61459600A6F6DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F29F75E71C61459600A6F6DA /* Assets.xcassets */; };
-		F29F75F31C63EFAF00A6F6DA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F75F71C652CAF00A6F6DA /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F75FD1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F75FF1C82448E00A6F6DA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75FE1C82448E00A6F6DA /* DetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F76011C8A05E900A6F6DA /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76001C8A05E900A6F6DA /* DimmingPresentationController.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F76031C8B5BD100A6F6DA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76021C8B5BD100A6F6DA /* GradientView.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F76051C8DC46800A6F6DA /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76041C8DC46800A6F6DA /* BounceAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F76071C8DC8F000A6F6DA /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76061C8DC8F000A6F6DA /* SlideOutAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F76091C8F1B2800A6F6DA /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76081C8F1B2800A6F6DA /* LandscapeViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F760B1C909E7A00A6F6DA /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F760A1C909E7A00A6F6DA /* FadeOutAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
-		F29F760D1C93249300A6F6DA /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F760C1C93249300A6F6DA /* Search.swift */; settings = {ASSET_TAGS = (); }; };
+		F29F75F31C63EFAF00A6F6DA /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F21C63EFAF00A6F6DA /* SearchResult.swift */; };
+		F29F75F71C652CAF00A6F6DA /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75F61C652CAF00A6F6DA /* SearchResultCell.swift */; };
+		F29F75FD1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75FC1C7F876C00A6F6DA /* UIImageView+DownloadImage.swift */; };
+		F29F75FF1C82448E00A6F6DA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F75FE1C82448E00A6F6DA /* DetailViewController.swift */; };
+		F29F76011C8A05E900A6F6DA /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76001C8A05E900A6F6DA /* DimmingPresentationController.swift */; };
+		F29F76031C8B5BD100A6F6DA /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76021C8B5BD100A6F6DA /* GradientView.swift */; };
+		F29F76051C8DC46800A6F6DA /* BounceAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76041C8DC46800A6F6DA /* BounceAnimationController.swift */; };
+		F29F76071C8DC8F000A6F6DA /* SlideOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76061C8DC8F000A6F6DA /* SlideOutAnimationController.swift */; };
+		F29F76091C8F1B2800A6F6DA /* LandscapeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F76081C8F1B2800A6F6DA /* LandscapeViewController.swift */; };
+		F29F760B1C909E7A00A6F6DA /* FadeOutAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F760A1C909E7A00A6F6DA /* FadeOutAnimationController.swift */; };
+		F29F760D1C93249300A6F6DA /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29F760C1C93249300A6F6DA /* Search.swift */; };
 		F2E824BA1C9474D800CA18A4 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824BC1C9474D800CA18A4 /* NothingFoundCell.xib */; };
 		F2E824BE1C94789700CA18A4 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C01C94789700CA18A4 /* LoadingCell.xib */; };
 		F2E824C51C947AD000CA18A4 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C71C947AD000CA18A4 /* SearchResultCell.xib */; };
-		F2E824CA1C94A71D00CA18A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C81C94A71D00CA18A4 /* Localizable.strings */; settings = {ASSET_TAGS = (); }; };
+		F2E824CA1C94A71D00CA18A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2E824C81C94A71D00CA18A4 /* Localizable.strings */; };
 		F2E824CF1C95C8B000CA18A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2E824D11C95C8B000CA18A4 /* InfoPlist.strings */; };
-		F2E824D41CA72D7F00CA18A4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E824D31CA72D7F00CA18A4 /* MenuViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		F2E824D41CA72D7F00CA18A4 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E824D31CA72D7F00CA18A4 /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +148,7 @@
 				TargetAttributes = {
 					F29F75DC1C61459600A6F6DA = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -357,6 +358,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.PiVI.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -369,6 +371,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.PiVI.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -13,64 +13,64 @@ typealias SearchComplete = (Bool) -> Void
 
 class Search {
 
-    private var dataTask: NSURLSessionDataTask? = nil
-    private(set) var state: State = .NotSearchedYet
+    fileprivate var dataTask: URLSessionDataTask? = nil
+    fileprivate(set) var state: State = .notSearchedYet
     
     enum State {
-        case NotSearchedYet
-        case Loading
-        case NoResults
-        case Results([SearchResult])
+        case notSearchedYet
+        case loading
+        case noResults
+        case results([SearchResult])
     }
     
     enum Category: Int {
-        case All = 0
-        case Music = 1
-        case Software = 2
-        case EBooks = 3
+        case all = 0
+        case music = 1
+        case software = 2
+        case eBooks = 3
         
         var entityName: String {
             switch self {
-            case .All: return ""
-            case .Music: return "musicTrack"
-            case .Software: return "software"
-            case .EBooks: return "ebook"
+            case .all: return ""
+            case .music: return "musicTrack"
+            case .software: return "software"
+            case .eBooks: return "ebook"
             }
         }
     }
     
-    func performSearchForText(text: String, category: Category, completion: SearchComplete) {
+    func performSearchForText(_ text: String, category: Category, completion: @escaping SearchComplete) {
         if !text.isEmpty {
             dataTask?.cancel()
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             
-            state = .Loading
+            state = .loading
             
             let url = urlWithSearchText(text, category: category)
             
-            let session = NSURLSession.sharedSession()
+            let session = URLSession.shared
             
-            dataTask = session.dataTaskWithURL(url, completionHandler: { data, response, error in
+            dataTask = session.dataTask(with: url, completionHandler: { data, response, error in
                 
-                self.state = .NotSearchedYet
+                self.state = .notSearchedYet
                 var success = false
-                if let error = error where error.code == -999 {
+                if let error = error, error.code == -999 {
                     return // Search was cacelled
-                } else if let httpResponse = response as? NSHTTPURLResponse where httpResponse.statusCode == 200,
-                    let data = data, dictionary = self.parseJSON(data) {
+                } else if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200,
+                    let data = data, let dictionary = self.parseJSON(data) {
                         var searchResults = self.parseDictionary(dictionary)
                         if searchResults.isEmpty {
-                            self.state = .NoResults
+                            self.state = .noResults
                         } else {
-                            searchResults.sortInPlace(<)
-                            self.state = .Results(searchResults)
+                            searchResults.sort(by: <)
+                            self.state = .results(searchResults)
                         }
                 
                         success = true
                     }
                 
-                dispatch_async(dispatch_get_main_queue()) {
-                    UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                DispatchQueue.main.async {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
                     completion(success)
                 }
                 
@@ -80,30 +80,30 @@ class Search {
         }
     }
     
-    private func urlWithSearchText(searchText: String, category: Category) -> NSURL {
+    fileprivate func urlWithSearchText(_ searchText: String, category: Category) -> URL {
         
         let entityName = category.entityName
-        let locale = NSLocale.autoupdatingCurrentLocale()
-        let language = locale.localeIdentifier
-        let countryCode = locale.objectForKey(NSLocaleCountryCode) as! String
+        let locale = Locale.autoupdatingCurrent
+        let language = locale.identifier
+        let countryCode = (locale as NSLocale).object(forKey: NSLocale.Key.countryCode) as! String
         
-        let escapedSearchText = searchText.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        let escapedSearchText = searchText.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         let urlString = String(format: "https://itunes.apple.com/search?term=%@&limit=200&entity=%@&lang=%@&country=%@", escapedSearchText, entityName, language, countryCode)
-        let url = NSURL(string: urlString)
+        let url = URL(string: urlString)
         print("URL: \(url!)")
         return url!
     }
     
-    private func parseJSON(data: NSData) -> [String: AnyObject]? {
+    fileprivate func parseJSON(_ data: Data) -> [String: AnyObject]? {
         do {
-            return try NSJSONSerialization.JSONObjectWithData(data, options: []) as? [String: AnyObject]
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject]
         } catch {
             print("JSON Error: \(error)")
             return nil
         }
     }
     
-    private func parseDictionary(dictionary: [String: AnyObject]) -> [SearchResult] {
+    fileprivate func parseDictionary(_ dictionary: [String: AnyObject]) -> [SearchResult] {
         guard let array = dictionary["results"] as? [AnyObject] else {
             print("Expected 'results' arrary")
             return []
@@ -126,7 +126,7 @@ class Search {
                     default:
                         break
                     }
-                } else if let kind = resultDict["kind"] as? String where kind == "ebook" {
+                } else if let kind = resultDict["kind"] as? String, kind == "ebook" {
                     searchResult = parseEBook(resultDict)
                 }
                 
@@ -140,7 +140,7 @@ class Search {
         return searchResults
     }
     
-    private func parseTrack(dictionary: [String: AnyObject]) -> SearchResult {
+    fileprivate func parseTrack(_ dictionary: [String: AnyObject]) -> SearchResult {
         let searchResult = SearchResult()
         
         searchResult.name = dictionary["trackName"] as! String
@@ -162,7 +162,7 @@ class Search {
         return searchResult
     }
     
-    private func parseAudioBook(dictionary: [String: AnyObject]) -> SearchResult {
+    fileprivate func parseAudioBook(_ dictionary: [String: AnyObject]) -> SearchResult {
         let searchResult = SearchResult()
         
         searchResult.name = dictionary["collectionName"] as! String
@@ -184,7 +184,7 @@ class Search {
         return searchResult
     }
     
-    private func parseSoftware(dictionary: [String: AnyObject]) -> SearchResult {
+    fileprivate func parseSoftware(_ dictionary: [String: AnyObject]) -> SearchResult {
         let searchResult = SearchResult()
         
         searchResult.name = dictionary["trackName"] as! String
@@ -206,7 +206,7 @@ class Search {
         return searchResult
     }
     
-    private func parseEBook(dictionary: [String: AnyObject]) -> SearchResult {
+    fileprivate func parseEBook(_ dictionary: [String: AnyObject]) -> SearchResult {
         let searchResult = SearchResult()
         
         searchResult.name = dictionary["trackName"] as! String
@@ -222,7 +222,7 @@ class Search {
         }
         
         if let genre: AnyObject = dictionary["genres"] {
-            searchResult.genre = (genre as! [String]).joinWithSeparator(", ")
+            searchResult.genre = (genre as! [String]).joined(separator: ", ")
         }
         
         return searchResult

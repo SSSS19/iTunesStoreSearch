@@ -24,7 +24,7 @@ class SearchResult {
         }
     
     
-    private let displayNamesForKind = [
+    fileprivate let displayNamesForKind = [
     "album": NSLocalizedString("Album", comment: "Localized kind: Album"),
     "audiobook": NSLocalizedString("Audio Book:", comment: "Localized kind: Audio Book"),
     "book": NSLocalizedString("Book", comment: "Localized kind: Book"),
@@ -39,10 +39,10 @@ class SearchResult {
 }
 
 func < (lhs: SearchResult, rhs: SearchResult) -> Bool {
-    return lhs.name.localizedStandardCompare(rhs.name) == .OrderedAscending
+    return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
 }
 
 func > (lhs: SearchResult, rhs: SearchResult) -> Bool {
-    return rhs.name.localizedStandardCompare(lhs.name) == .OrderedAscending
+    return rhs.name.localizedStandardCompare(lhs.name) == .orderedAscending
 }
 

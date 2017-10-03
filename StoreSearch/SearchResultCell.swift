@@ -10,7 +10,7 @@ import UIKit
 
 class SearchResultCell: UITableViewCell {
     
-    var downloadTask: NSURLSessionDownloadTask?
+    var downloadTask: URLSessionDownloadTask?
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var artistNameLabel: UILabel!
@@ -24,13 +24,13 @@ class SearchResultCell: UITableViewCell {
         selectedBackgroundView = selectedView
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
-    func configureForSearchResult(searchResult: SearchResult) {
+    func configureForSearchResult(_ searchResult: SearchResult) {
         nameLabel.text = searchResult.name
         
         if searchResult.artistName.isEmpty {
@@ -40,7 +40,7 @@ class SearchResultCell: UITableViewCell {
         }
         
         artworkImageView.image = UIImage(named: "Placeholder")
-        if let url = NSURL(string: searchResult.artworkURL60) {
+        if let url = URL(string: searchResult.artworkURL60) {
             downloadTask = artworkImageView.loadImageWithURL(url)
         }
     }
